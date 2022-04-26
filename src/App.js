@@ -84,9 +84,70 @@ const App = () => {
                 flexDirection: "row",
                 justifyContent: "flex-start",
                 alignItems: "flex-start",
-                gap:'3px'
+                gap: "3px",
               }}
             >
+              <Checkbox />
+              <span>Display range from</span>
+              <Textfield
+                id="test"
+                name="name"
+                onChange={(e) => {
+                  console.log(e.target.value);
+                  setVal(e.target.value);
+                }}
+                value={val}
+              />{" "}
+              <span>to</span>
+              <Textfield
+                id="test"
+                name="name"
+                onChange={(e) => {
+                  console.log(e.target.value);
+                  setVal(e.target.value);
+                }}
+                value={val}
+              />
+            </div>
+            <div
+              style={{
+                width: "100%",
+                height: "50px",
+                background: "lightyellow",
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "flex-start",
+                alignItems: "flex-start",
+                gap: "3px",
+              }}
+            >
+              <Checkbox />
+              <Dropdown
+                value={undefined}
+                options={[
+                  { label: "test", value: "bro" },
+                  { label: "test2", value: "nono" },
+                  { label: "All", value: "yes" },
+                ]}
+              />
+            </div>
+            <div
+              style={{
+                width: "100%",
+                height: "50px",
+                background: "lightyellow",
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "flex-start",
+                alignItems: "flex-start",
+                gap: "3px",
+              }}
+            >
+              <Checkbox />
+              <Checkbox />
+              <Checkbox />
+              <Checkbox />
+              <Checkbox />
               <Checkbox />
             </div>
             <div
@@ -94,36 +155,72 @@ const App = () => {
                 width: "100%",
                 height: "50px",
                 background: "lightyellow",
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "flex-start",
+                alignItems: "flex-start",
+                gap: "3px",
               }}
-            ></div>
+            >
+              <Checkbox />
+              <Checkbox />
+              <Checkbox />
+              <Checkbox />
+              <Checkbox />
+            </div>
             <div
               style={{
                 width: "100%",
                 height: "50px",
                 background: "lightyellow",
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "flex-start",
+                alignItems: "flex-start",
+                gap: "3px",
               }}
-            ></div>
+            >
+              <Checkbox />
+              <Dropdown
+                value={undefined}
+                options={[
+                  { label: "test", value: "bro" },
+                  { label: "test2", value: "nono" },
+                  { label: "All", value: "yes" },
+                ]}
+              />
+            </div>
             <div
               style={{
                 width: "100%",
                 height: "50px",
                 background: "lightyellow",
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "flex-start",
+                alignItems: "flex-start",
+                gap: "3px",
               }}
-            ></div>
-            <div
-              style={{
-                width: "100%",
-                height: "50px",
-                background: "lightyellow",
-              }}
-            ></div>
-            <div
-              style={{
-                width: "100%",
-                height: "50px",
-                background: "lightyellow",
-              }}
-            ></div>
+            >
+              <Button
+                label={"Button"}
+                onClick={(e) => {
+                  console.log("this is button");
+                }}
+              />
+              <Button
+                label={"Button"}
+                onClick={(e) => {
+                  console.log("this is button");
+                }}
+              />
+              <Button
+                label={"Button"}
+                onClick={(e) => {
+                  console.log("this is button");
+                }}
+              />
+            </div>
           </div>
         </Modal>
       </div>
