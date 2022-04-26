@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 
 const Button = (props) => {
-  const { label, onClick } = props;
+  const { label, onClick, ...rest } = props;
   return (
     <div>
-      <button onClick={onClick}>{label}</button>
+      <button {...rest} onClick={onClick}>
+        {label}
+      </button>
     </div>
   );
 };
