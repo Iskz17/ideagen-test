@@ -25,15 +25,18 @@ const Modal = (props) => {
             justifyContent: "center",
             alignItems: "center",
             overflow: "hidden",
+            backdropFilter: "blur(2px)",
+            webkitBackdropFilter: "blur(2px)",
           }}
         >
           <div
             style={{
               width: "60%",
               maxWidth: "700px",
-              height: "60%",
-              backgroundColor: "red",
+              // height: "60%",
+              backgroundColor: "white",
               padding: "5px",
+              borderRadius: "5px",
             }}
           >
             {props.children}

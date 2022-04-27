@@ -6,6 +6,7 @@ import Button from "./components/Button/Button";
 import Modal from "./components/Modal/Modal";
 import ContentWrapper from "./components/ContentWrapper/ContentWrapper";
 import data from "../config.json";
+import "./App.css";
 
 //https://www.digitalocean.com/community/tutorials/how-to-push-an-existing-project-to-github
 //https://blog.bitsrc.io/create-react-app-without-create-react-app-b0a5806a92
@@ -27,7 +28,7 @@ const App = () => {
       Status: "Processing",
       Category: "Furniture",
       Country: "Rusia",
-      createdDate: "2/9/2019",
+      CreatedDate: "2/9/2019",
     },
     {
       OrderNo: 3,
@@ -35,7 +36,7 @@ const App = () => {
       Status: "Rejected",
       Category: "Stationery",
       Country: "German",
-      createdDate: "2/26/2019",
+      CreatedDate: "2/26/2019",
     },
     {
       OrderNo: 4,
@@ -43,7 +44,7 @@ const App = () => {
       Status: "Open",
       Category: "Furniture",
       Country: "Singapore",
-      createdDate: "3/15/2019",
+      CreatedDate: "3/15/2019",
     },
     {
       OrderNo: 5,
@@ -51,7 +52,7 @@ const App = () => {
       Status: "Rejected",
       Category: "Sports",
       Country: "German",
-      createdDate: "4/1/2019",
+      CreatedDate: "4/1/2019",
     },
     {
       OrderNo: 6,
@@ -59,7 +60,7 @@ const App = () => {
       Status: "Processing",
       Category: "Electronics",
       Country: "Malaysia",
-      createdDate: "4/18/2019",
+      CreatedDate: "4/18/2019",
     },
     {
       OrderNo: 7,
@@ -67,7 +68,7 @@ const App = () => {
       Status: "Processing",
       Category: "Sports",
       Country: "German",
-      createdDate: "5/5/2019",
+      CreatedDate: "5/5/2019",
     },
     {
       OrderNo: 8,
@@ -75,7 +76,7 @@ const App = () => {
       Status: "Accepted",
       Category: "Hardware",
       Country: "Malaysia",
-      createdDate: "1/23/2019",
+      CreatedDate: "1/23/2019",
     },
     {
       OrderNo: 9,
@@ -83,7 +84,7 @@ const App = () => {
       Status: "Open",
       Category: "Furniture",
       Country: "Taiwan",
-      createdDate: "6/8/2019",
+      CreatedDate: "6/8/2019",
     },
     {
       OrderNo: 10,
@@ -91,7 +92,7 @@ const App = () => {
       Status: "Processing",
       Category: "Sports",
       Country: "China",
-      createdDate: "4/18/2019",
+      CreatedDate: "4/18/2019",
     },
   ]);
   const [modalState, setModalState] = useState(false);
@@ -110,7 +111,7 @@ const App = () => {
       Status: "Accepted",
       Category: "Electronics",
       Country: "United Kingdom",
-      createdDate: "1/23/2019",
+      CreatedDate: "1/23/2019",
     },
     {
       OrderNo: 2,
@@ -118,7 +119,7 @@ const App = () => {
       Status: "Processing",
       Category: "Furniture",
       Country: "Rusia",
-      createdDate: "2/9/2019",
+      CreatedDate: "2/9/2019",
     },
     {
       OrderNo: 3,
@@ -126,7 +127,7 @@ const App = () => {
       Status: "Rejected",
       Category: "Stationery",
       Country: "German",
-      createdDate: "2/26/2019",
+      CreatedDate: "2/26/2019",
     },
     {
       OrderNo: 4,
@@ -134,7 +135,7 @@ const App = () => {
       Status: "Open",
       Category: "Furniture",
       Country: "Singapore",
-      createdDate: "3/15/2019",
+      CreatedDate: "3/15/2019",
     },
     {
       OrderNo: 5,
@@ -142,7 +143,7 @@ const App = () => {
       Status: "Rejected",
       Category: "Sports",
       Country: "German",
-      createdDate: "4/1/2019",
+      CreatedDate: "4/1/2019",
     },
     {
       OrderNo: 6,
@@ -150,7 +151,7 @@ const App = () => {
       Status: "Processing",
       Category: "Electronics",
       Country: "Malaysia",
-      createdDate: "4/18/2019",
+      CreatedDate: "4/18/2019",
     },
     {
       OrderNo: 7,
@@ -158,7 +159,7 @@ const App = () => {
       Status: "Processing",
       Category: "Sports",
       Country: "German",
-      createdDate: "5/5/2019",
+      CreatedDate: "5/5/2019",
     },
     {
       OrderNo: 8,
@@ -166,7 +167,7 @@ const App = () => {
       Status: "Accepted",
       Category: "Hardware",
       Country: "Malaysia",
-      createdDate: "1/23/2019",
+      CreatedDate: "1/23/2019",
     },
     {
       OrderNo: 9,
@@ -174,7 +175,7 @@ const App = () => {
       Status: "Open",
       Category: "Furniture",
       Country: "Taiwan",
-      createdDate: "6/8/2019",
+      CreatedDate: "6/8/2019",
     },
     {
       OrderNo: 10,
@@ -182,7 +183,7 @@ const App = () => {
       Status: "Processing",
       Category: "Sports",
       Country: "China",
-      createdDate: "4/18/2019",
+      CreatedDate: "4/18/2019",
     },
   ];
   const headerVal = [
@@ -191,7 +192,7 @@ const App = () => {
     { label: "Status", val: "Status" },
     { label: "Category", val: "Category" },
     { label: "Country", val: "Country" },
-    { label: "Created Date", val: "createdDate" },
+    { label: "Created Date", val: "CreatedDate" },
   ];
 
   function confirmedFilter() {
@@ -210,12 +211,9 @@ const App = () => {
           continue;
         }
         if (filterParam[key]?.includes("Others")) {
-          let originalStripped = [
-            "All",
-            "Electronics",
-            "Furniture",
-            "Others",
-          ].filter((x) => x !== "All" && x !== "Others");
+          let originalStripped = [...data["category"]].filter(
+            (x) => x !== "All" && x !== "Others"
+          );
           originalStripped = originalStripped?.filter((x) => {
             if (!filterParam[key]?.includes(x)) return true;
             else return false;
@@ -242,254 +240,334 @@ const App = () => {
       <div
         style={{
           width: "100%",
-          minHeight: 0,
-          margin: 0,
+          height: "100%",
+          backgroundColor: "#e0e0e0",
+          position: "absolute",
+          left: 0,
+          right: 0,
+          top: 0,
+          bottom: 0,
           padding: 0,
-          //backgroundColor: "blue",
+          margin: 0,
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "flex-start",
+          overflow: "hidden",
+          zIndex: "-100",
         }}
       >
-        <h1>
-          Welcome to React App thats build using Webpack and Babel separately
-        </h1>
-        <Button
-          label={"Button"}
-          onClick={(e) => {
-            //  console.log("this is button");
-            setModalState(true);
+        <div
+          style={{
+            width: "100%",
+            minHeight: 0,
+            margin: 0,
+            padding: 0,
+            //backgroundColor: "blue",
           }}
-        />
-        <div>
-          <table>
-            <tr>
-              {headerVal.map((header) => {
-                return <th>{header.label}</th>;
-              })}
-            </tr>
-            {filteredArray?.map((so) => {
-              return (
-                <tr>
-                  <td>{so?.OrderNo}</td>
-                  <td>{so?.CustomerName}</td>
-                  <td>{so?.Status}</td>
-                  <td>{so?.Category}</td>
-                  <td>{so?.Country}</td>
-                  <td>{so?.createdDate}</td>
-                </tr>
-              );
-            })}
-          </table>
-        </div>
-        <Modal open={modalState}>
-          <div
+        >
+          <h1
             style={{
-              width: "100%",
-              height: "100%",
-              backgroundColor: "lightblue",
-              display: "flex",
-              justifyContent: "flex-start",
-              alignItems: "center",
-              flexWrap: "nowrap",
-              flexDirection: "column",
+              fontSize: "80px",
+              marginLeft: "10px",
+              color: "rgba(0,0,0,0.45)",
             }}
           >
+            Sales Order Page
+          </h1>
+
+          <div className="App">
             <div
               style={{
-                width: "100%",
-                height: "50px",
-                background: "lightyellow",
-              }}
-            >
-              <span>Filters</span>
-              <span style={{ display: "flex" }}>
-                Select criteria filter in listing
-              </span>
-            </div>
-            <div
-              style={{
-                width: "100%",
-                height: "50px",
-                background: "lightyellow",
+                width: "800px",
+                height: "80px",
                 display: "flex",
-                flexDirection: "row",
-                justifyContent: "flex-start",
-                alignItems: "flex-start",
-                gap: "3px",
+                justifyContent: "flex-end",
+                alignItems: "center",
               }}
             >
-              <Checkbox
-                label={"Created Date"}
-                value={fieldState["CreatedDate"]?.checked}
-                onChange={(e) => {
-                  setFieldState({
-                    ...fieldState,
-                    ["CreatedDate"]: {
-                      checked: e.target.checked,
-                      value: { ...fieldState["CreatedDate"].value },
-                    },
-                  });
+              {/* <Button
+                label={`🧪`}
+                onClick={(e) => {
+                  //  console.log("this is button");
+                  setModalState(true);
                 }}
-              />
-              <span>Display range from</span>
-              <Textfield
-                id="test"
-                name="name"
-                onChange={(e) => {
-                  //    console.log(e.target.value);
-                  setFieldState({
-                    ...fieldState,
-                    ["CreatedDate"]: {
-                      checked: fieldState["CreatedDate"].checked,
-                      value: {
-                        ...fieldState["CreatedDate"].value,
-                        ["From"]: e.target.value,
-                      },
-                    },
-                  });
+              /> */}
+              <div
+                onClick={(e) => {
+                  setModalState(true);
                 }}
-                value={fieldState["CreatedDate"].value.From}
-              />{" "}
-              <span>to</span>
-              <Textfield
-                id="test"
-                name="name"
-                onChange={(e) => {
-                  setFieldState({
-                    ...fieldState,
-                    ["CreatedDate"]: {
-                      checked: fieldState["CreatedDate"].checked,
-                      value: {
-                        ...fieldState["CreatedDate"].value,
-                        ["To"]: e.target.value,
-                      },
-                    },
-                  });
+                style={{
+                  width: "35px",
+                  height: "35px",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  fontSize: "24px",
+                  borderRadius: "5px",
+                  background: "#54869c",
+                  boxShadow: "4px 4px 7px #4c7a8e, -4px -4px 7px #5c92aa",
+                  cursor: "pointer",
                 }}
-                value={fieldState["CreatedDate"].value.To}
-              />
+              >
+                🧪
+              </div>
             </div>
+
+            <table>
+              <tr>
+                {headerVal.map((header) => {
+                  return <th>{header.label}</th>;
+                })}
+              </tr>
+              {filteredArray?.map((so) => {
+                return (
+                  <tr>
+                    <td>{so?.OrderNo}</td>
+                    <td>{so?.CustomerName}</td>
+                    <td>{so?.Status}</td>
+                    <td>{so?.Category}</td>
+                    <td>{so?.Country}</td>
+                    <td>{so?.CreatedDate}</td>
+                  </tr>
+                );
+              })}
+            </table>
+          </div>
+          <Modal open={modalState}>
             <div
               style={{
                 width: "100%",
-                height: "50px",
-                background: "lightyellow",
+                height: "100%",
+                // backgroundColor: "lightblue",
                 display: "flex",
-                flexDirection: "row",
                 justifyContent: "flex-start",
-                alignItems: "flex-start",
-                gap: "3px",
+                alignItems: "center",
+                flexWrap: "nowrap",
+                flexDirection: "column",
+                padding: "10px",
               }}
             >
-              <Checkbox
-                label={"Customer Name"}
-                value={fieldState["CustomerName"]?.checked}
-                onChange={(e) => {
-                  setFieldState({
-                    ...fieldState,
-                    ["CustomerName"]: {
-                      checked: e.target.checked,
-                      value: [...fieldState["CustomerName"].value],
-                    },
-                  });
+              <div
+                style={{
+                  width: "100%",
+                  height: "50px",
+                  //background: "lightyellow",
                 }}
-              />
-              <Dropdown
-                value={fieldState["CustomerName"].value[0]}
-                options={[
-                  ...data["customerName"]?.map((name) => {
-                    return { label: name, value: name };
-                  }),
-                ]}
-                needBlank={true}
-                onChange={(e) => {
-                  if (e.target.value === "") {
+              >
+                <span>Filters</span>
+                <span style={{ display: "flex" }}>
+                  Select criteria filter in listing
+                </span>
+              </div>
+              <div
+                style={{
+                  width: "100%",
+                  height: "50px",
+                  // background: "lightyellow",
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "flex-start",
+                  alignItems: "flex-start",
+                  gap: "3px",
+                }}
+              >
+                <Checkbox
+                  label={"Created Date"}
+                  value={fieldState["CreatedDate"]?.checked}
+                  onChange={(e) => {
+                    setFieldState({
+                      ...fieldState,
+                      ["CreatedDate"]: {
+                        checked: e.target.checked,
+                        value: { ...fieldState["CreatedDate"].value },
+                      },
+                    });
+                  }}
+                />
+                <span>Display range from</span>
+                <Textfield
+                  id="test"
+                  name="name"
+                  onChange={(e) => {
+                    //    console.log(e.target.value);
+                    setFieldState({
+                      ...fieldState,
+                      ["CreatedDate"]: {
+                        checked: fieldState["CreatedDate"].checked,
+                        value: {
+                          ...fieldState["CreatedDate"].value,
+                          ["From"]: e.target.value,
+                        },
+                      },
+                    });
+                  }}
+                  value={fieldState["CreatedDate"].value.From}
+                />{" "}
+                <span>to</span>
+                <Textfield
+                  id="test"
+                  name="name"
+                  onChange={(e) => {
+                    setFieldState({
+                      ...fieldState,
+                      ["CreatedDate"]: {
+                        checked: fieldState["CreatedDate"].checked,
+                        value: {
+                          ...fieldState["CreatedDate"].value,
+                          ["To"]: e.target.value,
+                        },
+                      },
+                    });
+                  }}
+                  value={fieldState["CreatedDate"].value.To}
+                />
+              </div>
+              <div
+                style={{
+                  width: "100%",
+                  height: "50px",
+                  //background: "lightyellow",
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "flex-start",
+                  alignItems: "flex-start",
+                  gap: "3px",
+                }}
+              >
+                <Checkbox
+                  label={"Customer Name"}
+                  value={fieldState["CustomerName"]?.checked}
+                  onChange={(e) => {
                     setFieldState({
                       ...fieldState,
                       ["CustomerName"]: {
-                        checked: false,
-                        value: [],
+                        checked: e.target.checked,
+                        value: [...fieldState["CustomerName"].value],
                       },
                     });
-                    return;
-                  }
-                  setFieldState({
-                    ...fieldState,
-                    ["CustomerName"]: {
-                      checked: true,
-                      value: [e.target.value],
-                    },
-                  });
+                  }}
+                />
+                <Dropdown
+                  value={fieldState["CustomerName"].value[0]}
+                  options={[
+                    ...data["customerName"]?.map((name) => {
+                      return { label: name, value: name };
+                    }),
+                  ]}
+                  needBlank={true}
+                  onChange={(e) => {
+                    if (e.target.value === "") {
+                      setFieldState({
+                        ...fieldState,
+                        ["CustomerName"]: {
+                          checked: false,
+                          value: [],
+                        },
+                      });
+                      return;
+                    }
+                    setFieldState({
+                      ...fieldState,
+                      ["CustomerName"]: {
+                        checked: true,
+                        value: [e.target.value],
+                      },
+                    });
+                  }}
+                />
+              </div>
+              <div
+                style={{
+                  width: "100%",
+                  height: "50px",
+                  //background: "lightyellow",
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "flex-start",
+                  alignItems: "flex-start",
+                  gap: "20px",
                 }}
-              />
-            </div>
-            <div
-              style={{
-                width: "100%",
-                height: "50px",
-                background: "lightyellow",
-                display: "flex",
-                flexDirection: "row",
-                justifyContent: "flex-start",
-                alignItems: "flex-start",
-                gap: "20px",
-              }}
-            >
-              <Checkbox
-                label={"Status"}
-                value={fieldState["Status"]?.checked}
-                onChange={(e) => {
-                  if (e.target.checked) {
+              >
+                <Checkbox
+                  label={"Status"}
+                  value={fieldState["Status"]?.checked}
+                  onChange={(e) => {
+                    if (e.target.checked) {
+                      setFieldState({
+                        ...fieldState,
+                        ["Status"]: {
+                          checked: e.target.checked,
+                          value: [...data["status"]],
+                        },
+                      });
+                      return;
+                    }
                     setFieldState({
                       ...fieldState,
                       ["Status"]: {
                         checked: e.target.checked,
-                        value: [...data["status"]],
+                        value: [""],
                       },
                     });
                     return;
-                  }
-                  setFieldState({
-                    ...fieldState,
-                    ["Status"]: {
-                      checked: e.target.checked,
-                      value: [""],
-                    },
-                  });
-                  return;
-                }}
-              />
-              {[...data["status"]].map((x) => {
-                return (
-                  <Checkbox
-                    label={x}
-                    value={
-                      fieldState["Status"].value.includes(x) ||
-                      fieldState["Status"].value.includes("All")
-                    }
-                    onChange={(e) => {
-                      let statsValue = [
-                        ...new Set([...fieldState["Status"].value, x]),
-                      ];
-                      if (e.target.checked) {
+                  }}
+                />
+                {[...data["status"]].map((x) => {
+                  return (
+                    <Checkbox
+                      label={x}
+                      value={
+                        fieldState["Status"].value.includes(x) ||
+                        fieldState["Status"].value.includes("All")
+                      }
+                      onChange={(e) => {
+                        let statsValue = [
+                          ...new Set([...fieldState["Status"].value, x]),
+                        ];
+                        if (e.target.checked) {
+                          if (x === "All") {
+                            setFieldState({
+                              ...fieldState,
+                              ["Status"]: {
+                                ...fieldState["Status"],
+                                value: [...data["status"]],
+                              },
+                            });
+                            return;
+                          }
+                          let tryFilter = statsValue?.filter(
+                            (s) => s !== "All"
+                          );
+                          if (
+                            tryFilter?.length > 0 &&
+                            tryFilter?.length === [...data["status"]].length - 1
+                          ) {
+                            setFieldState({
+                              ...fieldState,
+                              ["Status"]: {
+                                ...fieldState["Status"],
+                                value: [...data["status"]],
+                              },
+                            });
+                            return;
+                          }
+                          setFieldState({
+                            ...fieldState,
+                            ["Status"]: {
+                              ...fieldState["Status"],
+                              value: [
+                                ...statsValue?.filter((s) => s !== "All"),
+                              ],
+                            },
+                          });
+                          return;
+                        }
                         if (x === "All") {
                           setFieldState({
                             ...fieldState,
                             ["Status"]: {
                               ...fieldState["Status"],
-                              value: [...data["status"]],
-                            },
-                          });
-                          return;
-                        }
-                        let tryFilter = statsValue?.filter((s) => s !== "All");
-                        if (
-                          tryFilter?.length > 0 &&
-                          tryFilter?.length === [...data["status"]].length - 1
-                        ) {
-                          setFieldState({
-                            ...fieldState,
-                            ["Status"]: {
-                              ...fieldState["Status"],
-                              value: [...data["status"]],
+                              value: [],
                             },
                           });
                           return;
@@ -498,105 +576,112 @@ const App = () => {
                           ...fieldState,
                           ["Status"]: {
                             ...fieldState["Status"],
-                            value: [...statsValue?.filter((s) => s !== "All")],
+                            value: [
+                              ...statsValue.filter(
+                                (s) => s !== x && s !== "All"
+                              ),
+                            ],
                           },
                         });
-                        return;
-                      }
-                      if (x === "All") {
-                        setFieldState({
-                          ...fieldState,
-                          ["Status"]: {
-                            ...fieldState["Status"],
-                            value: [],
-                          },
-                        });
-                        return;
-                      }
+                      }}
+                    />
+                  );
+                })}
+              </div>
+              <div
+                style={{
+                  width: "100%",
+                  height: "50px",
+                  //background: "lightyellow",
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "flex-start",
+                  alignItems: "flex-start",
+                  gap: "20px",
+                }}
+              >
+                <Checkbox
+                  label={"Category"}
+                  value={fieldState["Category"]?.checked}
+                  onChange={(e) => {
+                    if (e.target.checked) {
                       setFieldState({
                         ...fieldState,
-                        ["Status"]: {
-                          ...fieldState["Status"],
-                          value: [
-                            ...statsValue.filter((s) => s !== x && s !== "All"),
-                          ],
+                        ["Category"]: {
+                          checked: e.target.checked,
+                          value: [...data["category"]],
                         },
                       });
-                    }}
-                  />
-                );
-              })}
-            </div>
-            <div
-              style={{
-                width: "100%",
-                height: "50px",
-                background: "lightyellow",
-                display: "flex",
-                flexDirection: "row",
-                justifyContent: "flex-start",
-                alignItems: "flex-start",
-                gap: "20px",
-              }}
-            >
-              <Checkbox
-                label={"Category"}
-                value={fieldState["Category"]?.checked}
-                onChange={(e) => {
-                  if (e.target.checked) {
+                      return;
+                    }
                     setFieldState({
                       ...fieldState,
                       ["Category"]: {
                         checked: e.target.checked,
-                        value: [...data["category"]],
+                        value: [""],
                       },
                     });
                     return;
-                  }
-                  setFieldState({
-                    ...fieldState,
-                    ["Category"]: {
-                      checked: e.target.checked,
-                      value: [""],
-                    },
-                  });
-                  return;
-                }}
-              />
-              {[...data["category"]]?.map((x) => {
-                return (
-                  <Checkbox
-                    label={x}
-                    value={
-                      fieldState["Category"].value.includes(x) ||
-                      fieldState["Category"].value.includes("All")
-                    }
-                    onChange={(e) => {
-                      let statsValue = [
-                        ...new Set([...fieldState["Category"].value, x]),
-                      ];
-                      //    console.log(e.target.checked, x, statsValue);
-                      if (e.target.checked) {
+                  }}
+                />
+                {[...data["category"]]?.map((x) => {
+                  return (
+                    <Checkbox
+                      label={x}
+                      value={
+                        fieldState["Category"].value.includes(x) ||
+                        fieldState["Category"].value.includes("All")
+                      }
+                      onChange={(e) => {
+                        let statsValue = [
+                          ...new Set([...fieldState["Category"].value, x]),
+                        ];
+                        //    console.log(e.target.checked, x, statsValue);
+                        if (e.target.checked) {
+                          if (x === "All") {
+                            setFieldState({
+                              ...fieldState,
+                              ["Category"]: {
+                                ...fieldState["Category"],
+                                value: [...data["category"]],
+                              },
+                            });
+                            return;
+                          }
+                          let tryFilter = statsValue?.filter(
+                            (s) => s !== "All"
+                          );
+                          if (
+                            tryFilter?.length > 0 &&
+                            tryFilter?.length ===
+                              [...data["category"]].length - 1
+                          ) {
+                            setFieldState({
+                              ...fieldState,
+                              ["Category"]: {
+                                ...fieldState["Category"],
+                                value: [...data["category"]],
+                              },
+                            });
+                            return;
+                          }
+                          setFieldState({
+                            ...fieldState,
+                            ["Category"]: {
+                              ...fieldState["Category"],
+                              value: [
+                                ...statsValue?.filter((s) => s !== "All"),
+                              ],
+                            },
+                          });
+                          return;
+                        }
                         if (x === "All") {
                           setFieldState({
                             ...fieldState,
                             ["Category"]: {
                               ...fieldState["Category"],
-                              value: [...data["category"]],
-                            },
-                          });
-                          return;
-                        }
-                        let tryFilter = statsValue?.filter((s) => s !== "All");
-                        if (
-                          tryFilter?.length > 0 &&
-                          tryFilter?.length === [...data["category"]].length - 1
-                        ) {
-                          setFieldState({
-                            ...fieldState,
-                            ["Category"]: {
-                              ...fieldState["Category"],
-                              value: [...data["category"]],
+                              value: [],
                             },
                           });
                           return;
@@ -605,124 +690,108 @@ const App = () => {
                           ...fieldState,
                           ["Category"]: {
                             ...fieldState["Category"],
-                            value: [...statsValue?.filter((s) => s !== "All")],
+                            value: [
+                              ...statsValue.filter(
+                                (s) => s !== x && s !== "All"
+                              ),
+                            ],
                           },
                         });
-                        return;
-                      }
-                      if (x === "All") {
-                        setFieldState({
-                          ...fieldState,
-                          ["Category"]: {
-                            ...fieldState["Category"],
-                            value: [],
-                          },
-                        });
-                        return;
-                      }
-                      setFieldState({
-                        ...fieldState,
-                        ["Category"]: {
-                          ...fieldState["Category"],
-                          value: [
-                            ...statsValue.filter((s) => s !== x && s !== "All"),
-                          ],
-                        },
-                      });
-                    }}
-                  />
-                );
-              })}
-            </div>
-            <div
-              style={{
-                width: "100%",
-                height: "50px",
-                background: "lightyellow",
-                display: "flex",
-                flexDirection: "row",
-                justifyContent: "flex-start",
-                alignItems: "flex-start",
-                gap: "3px",
-              }}
-            >
-              <Checkbox
-                label={"Country"}
-                value={fieldState["Country"]?.checked}
-                onChange={(e) => {
-                  setFieldState({
-                    ...fieldState,
-                    ["Country"]: {
-                      checked: e.target.checked,
-                      value: [...fieldState["Country"].value],
-                    },
-                  });
+                      }}
+                    />
+                  );
+                })}
+              </div>
+              <div
+                style={{
+                  width: "100%",
+                  height: "50px",
+                  //background: "lightyellow",
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "flex-start",
+                  alignItems: "flex-start",
+                  gap: "3px",
                 }}
-              />
-              <Dropdown
-                value={fieldState["Country"].value[0]}
-                options={[
-                  ...data["country"]?.map((name) => {
-                    return { label: name, value: name };
-                  }),
-                ]}
-                needBlank={true}
-                onChange={(e) => {
-                  if (e.target.value === "") {
+              >
+                <Checkbox
+                  label={"Country"}
+                  value={fieldState["Country"]?.checked}
+                  onChange={(e) => {
                     setFieldState({
                       ...fieldState,
                       ["Country"]: {
-                        checked: false,
-                        value: [],
+                        checked: e.target.checked,
+                        value: [...fieldState["Country"].value],
                       },
                     });
-                    return;
-                  }
-                  setFieldState({
-                    ...fieldState,
-                    ["Country"]: {
-                      checked: true,
-                      value: [e.target.value],
-                    },
-                  });
+                  }}
+                />
+                <Dropdown
+                  value={fieldState["Country"].value[0]}
+                  options={[
+                    ...data["country"]?.map((name) => {
+                      return { label: name, value: name };
+                    }),
+                  ]}
+                  needBlank={true}
+                  onChange={(e) => {
+                    if (e.target.value === "") {
+                      setFieldState({
+                        ...fieldState,
+                        ["Country"]: {
+                          checked: false,
+                          value: [],
+                        },
+                      });
+                      return;
+                    }
+                    setFieldState({
+                      ...fieldState,
+                      ["Country"]: {
+                        checked: true,
+                        value: [e.target.value],
+                      },
+                    });
+                  }}
+                />
+              </div>
+              <div
+                style={{
+                  width: "100%",
+                  height: "50px",
+                  //background: "lightyellow",
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "flex-start",
+                  alignItems: "flex-start",
+                  gap: "3px",
                 }}
-              />
+              >
+                <Button
+                  label={"Reset"}
+                  onClick={(e) => {
+                    //      console.log("this is button");
+                  }}
+                />
+                <Button
+                  label={"Apply"}
+                  onClick={(e) => {
+                    //         console.log("this is button");
+                    confirmedFilter() ? setModalState(false) : null;
+                  }}
+                />
+                <Button
+                  label={"Close"}
+                  onClick={(e) => {
+                    //         console.log("this is button");
+                    setModalState(false);
+                  }}
+                />
+              </div>
             </div>
-            <div
-              style={{
-                width: "100%",
-                height: "50px",
-                background: "lightyellow",
-                display: "flex",
-                flexDirection: "row",
-                justifyContent: "flex-start",
-                alignItems: "flex-start",
-                gap: "3px",
-              }}
-            >
-              <Button
-                label={"Reset"}
-                onClick={(e) => {
-                  //      console.log("this is button");
-                }}
-              />
-              <Button
-                label={"Apply"}
-                onClick={(e) => {
-                  //         console.log("this is button");
-                  confirmedFilter() ? setModalState(false) : null;
-                }}
-              />
-              <Button
-                label={"Close"}
-                onClick={(e) => {
-                  //         console.log("this is button");
-                  setModalState(false);
-                }}
-              />
-            </div>
-          </div>
-        </Modal>
+          </Modal>
+        </div>
       </div>
     </>
   );

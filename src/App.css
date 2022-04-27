@@ -1,0 +1,27 @@
+.App {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /* background-color: lightblue; */
+}
+
+table {
+  border-radius: 10px;
+  padding: 6px;
+  width: 800px;
+  height: 400px;
+  box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+}
+
+th {
+  border-bottom: 1px solid black;
+}
+
+td {
+  text-align: center;
+}
+/* tr:nth-child(even) {
+  background-color: white;
+} */
