@@ -5,90 +5,89 @@ import Dropdown from "./components/DropdownList/Dropdown";
 import Button from "./components/Button/Button";
 import Modal from "./components/Modal/Modal";
 import ContentWrapper from "./components/ContentWrapper/ContentWrapper";
-import admins from "../config.json";
+import data from "../config.json";
 
 //https://www.digitalocean.com/community/tutorials/how-to-push-an-existing-project-to-github
 //https://blog.bitsrc.io/create-react-app-without-create-react-app-b0a5806a92
 //https://www.git-tower.com/learn/git/faq/git-rename-master-to-main
 
 const App = () => {
-  const [val, setVal] = useState("");
   const [filteredArray, setFilteredArray] = useState([
     {
-      orderNo: 1,
-      customerName: "Kivell",
+      OrderNo: 1,
+      CustomerName: "Kivell",
       Status: "Accepted",
       Category: "Electronics",
       Country: "United Kingdom",
-      createdDate: "1/23/2019",
+      CreatedDate: "1/23/2019",
     },
     {
-      orderNo: 2,
-      customerName: "Jardine",
+      OrderNo: 2,
+      CustomerName: "Jardine",
       Status: "Processing",
       Category: "Furniture",
       Country: "Rusia",
       createdDate: "2/9/2019",
     },
     {
-      orderNo: 3,
-      customerName: "Gill",
+      OrderNo: 3,
+      CustomerName: "Gill",
       Status: "Rejected",
       Category: "Stationery",
       Country: "German",
       createdDate: "2/26/2019",
     },
     {
-      orderNo: 4,
-      customerName: "Sor'vino",
+      OrderNo: 4,
+      CustomerName: "Sor'vino",
       Status: "Open",
       Category: "Furniture",
       Country: "Singapore",
       createdDate: "3/15/2019",
     },
     {
-      orderNo: 5,
-      customerName: "Jones",
+      OrderNo: 5,
+      CustomerName: "Jones",
       Status: "Rejected",
       Category: "Sports",
       Country: "German",
       createdDate: "4/1/2019",
     },
     {
-      orderNo: 6,
-      customerName: "Andrews",
+      OrderNo: 6,
+      CustomerName: "Andrews",
       Status: "Processing",
       Category: "Electronics",
       Country: "Malaysia",
       createdDate: "4/18/2019",
     },
     {
-      orderNo: 7,
-      customerName: "Jardine",
+      OrderNo: 7,
+      CustomerName: "Jardine",
       Status: "Processing",
       Category: "Sports",
       Country: "German",
       createdDate: "5/5/2019",
     },
     {
-      orderNo: 8,
-      customerName: "Thompson",
+      OrderNo: 8,
+      CustomerName: "Thompson",
       Status: "Accepted",
       Category: "Hardware",
       Country: "Malaysia",
       createdDate: "1/23/2019",
     },
     {
-      orderNo: 9,
-      customerName: "Jones",
+      OrderNo: 9,
+      CustomerName: "Jones",
       Status: "Open",
       Category: "Furniture",
       Country: "Taiwan",
       createdDate: "6/8/2019",
     },
     {
-      orderNo: 10,
-      customerName: "Morgan",
+      OrderNo: 10,
+      CustomerName: "Morgan",
       Status: "Processing",
       Category: "Sports",
       Country: "China",
@@ -103,84 +102,83 @@ const App = () => {
     CreatedDate: { checked: false, value: { From: "", To: "" } },
     CustomerName: { checked: false, value: [] },
   });
-  // console.log("this is field state", fieldState);
-  console.log("this is config", admins);
+  console.log("this is field state", fieldState);
   const SalesOrderList = [
     {
-      orderNo: 1,
-      customerName: "Kivell",
+      OrderNo: 1,
+      CustomerName: "Kivell",
       Status: "Accepted",
       Category: "Electronics",
       Country: "United Kingdom",
       createdDate: "1/23/2019",
     },
     {
-      orderNo: 2,
-      customerName: "Jardine",
+      OrderNo: 2,
+      CustomerName: "Jardine",
       Status: "Processing",
       Category: "Furniture",
       Country: "Rusia",
       createdDate: "2/9/2019",
     },
     {
-      orderNo: 3,
-      customerName: "Gill",
+      OrderNo: 3,
+      CustomerName: "Gill",
       Status: "Rejected",
       Category: "Stationery",
       Country: "German",
       createdDate: "2/26/2019",
     },
     {
-      orderNo: 4,
-      customerName: "Sor'vino",
+      OrderNo: 4,
+      CustomerName: "Sor'vino",
       Status: "Open",
       Category: "Furniture",
       Country: "Singapore",
       createdDate: "3/15/2019",
     },
     {
-      orderNo: 5,
-      customerName: "Jones",
+      OrderNo: 5,
+      CustomerName: "Jones",
       Status: "Rejected",
       Category: "Sports",
       Country: "German",
       createdDate: "4/1/2019",
     },
     {
-      orderNo: 6,
-      customerName: "Andrews",
+      OrderNo: 6,
+      CustomerName: "Andrews",
       Status: "Processing",
       Category: "Electronics",
       Country: "Malaysia",
       createdDate: "4/18/2019",
     },
     {
-      orderNo: 7,
-      customerName: "Jardine",
+      OrderNo: 7,
+      CustomerName: "Jardine",
       Status: "Processing",
       Category: "Sports",
       Country: "German",
       createdDate: "5/5/2019",
     },
     {
-      orderNo: 8,
-      customerName: "Thompson",
+      OrderNo: 8,
+      CustomerName: "Thompson",
       Status: "Accepted",
       Category: "Hardware",
       Country: "Malaysia",
       createdDate: "1/23/2019",
     },
     {
-      orderNo: 9,
-      customerName: "Jones",
+      OrderNo: 9,
+      CustomerName: "Jones",
       Status: "Open",
       Category: "Furniture",
       Country: "Taiwan",
       createdDate: "6/8/2019",
     },
     {
-      orderNo: 10,
-      customerName: "Morgan",
+      OrderNo: 10,
+      CustomerName: "Morgan",
       Status: "Processing",
       Category: "Sports",
       Country: "China",
@@ -188,8 +186,8 @@ const App = () => {
     },
   ];
   const headerVal = [
-    { label: "Order No", val: "orderNo" },
-    { label: "Customer Name", val: "customerName" },
+    { label: "Order No", val: "OrderNo" },
+    { label: "Customer Name", val: "CustomerName" },
     { label: "Status", val: "Status" },
     { label: "Category", val: "Category" },
     { label: "Country", val: "Country" },
@@ -253,24 +251,6 @@ const App = () => {
         <h1>
           Welcome to React App thats build using Webpack and Babel separately
         </h1>
-        <Textfield
-          id="test"
-          name="name"
-          onChange={(e) => {
-            //console.log(e.target.value);
-            setVal(e.target.value);
-          }}
-          value={val}
-        />
-        <Checkbox label="Created Date" />
-        <Dropdown
-          value={undefined}
-          options={[
-            { label: "test", value: "bro" },
-            { label: "test2", value: "nono" },
-            { label: "All", value: "yes" },
-          ]}
-        />
         <Button
           label={"Button"}
           onClick={(e) => {
@@ -288,8 +268,8 @@ const App = () => {
             {filteredArray?.map((so) => {
               return (
                 <tr>
-                  <td>{so?.orderNo}</td>
-                  <td>{so?.customerName}</td>
+                  <td>{so?.OrderNo}</td>
+                  <td>{so?.CustomerName}</td>
                   <td>{so?.Status}</td>
                   <td>{so?.Category}</td>
                   <td>{so?.Country}</td>
@@ -355,19 +335,36 @@ const App = () => {
                 name="name"
                 onChange={(e) => {
                   //    console.log(e.target.value);
-                  setVal(e.target.value);
+                  setFieldState({
+                    ...fieldState,
+                    ["CreatedDate"]: {
+                      checked: fieldState["CreatedDate"].checked,
+                      value: {
+                        ...fieldState["CreatedDate"].value,
+                        ["From"]: e.target.value,
+                      },
+                    },
+                  });
                 }}
-                value={val}
+                value={fieldState["CreatedDate"].value.From}
               />{" "}
               <span>to</span>
               <Textfield
                 id="test"
                 name="name"
                 onChange={(e) => {
-                  //    console.log(e.target.value);
-                  setVal(e.target.value);
+                  setFieldState({
+                    ...fieldState,
+                    ["CreatedDate"]: {
+                      checked: fieldState["CreatedDate"].checked,
+                      value: {
+                        ...fieldState["CreatedDate"].value,
+                        ["To"]: e.target.value,
+                      },
+                    },
+                  });
                 }}
-                value={val}
+                value={fieldState["CreatedDate"].value.To}
               />
             </div>
             <div
@@ -396,12 +393,32 @@ const App = () => {
                 }}
               />
               <Dropdown
-                value={undefined}
+                value={fieldState["CustomerName"].value[0]}
                 options={[
-                  { label: "test", value: "bro" },
-                  { label: "test2", value: "nono" },
-                  { label: "All", value: "yes" },
+                  ...data["customerName"]?.map((name) => {
+                    return { label: name, value: name };
+                  }),
                 ]}
+                needBlank={true}
+                onChange={(e) => {
+                  if (e.target.value === "") {
+                    setFieldState({
+                      ...fieldState,
+                      ["CustomerName"]: {
+                        checked: false,
+                        value: [],
+                      },
+                    });
+                    return;
+                  }
+                  setFieldState({
+                    ...fieldState,
+                    ["CustomerName"]: {
+                      checked: true,
+                      value: [e.target.value],
+                    },
+                  });
+                }}
               />
             </div>
             <div
@@ -425,13 +442,7 @@ const App = () => {
                       ...fieldState,
                       ["Status"]: {
                         checked: e.target.checked,
-                        value: [
-                          "All",
-                          "Open",
-                          "Processing",
-                          "Accepted",
-                          "Rejected",
-                        ],
+                        value: [...data["status"]],
                       },
                     });
                     return;
@@ -446,83 +457,39 @@ const App = () => {
                   return;
                 }}
               />
-              {["All", "Open", "Processing", "Accepted", "Rejected"].map(
-                (x) => {
-                  return (
-                    <Checkbox
-                      label={x}
-                      value={
-                        fieldState["Status"].value.includes(x) ||
-                        fieldState["Status"].value.includes("All")
-                      }
-                      onChange={(e) => {
-                        let statsValue = [
-                          ...new Set([...fieldState["Status"].value, x]),
-                        ];
-                        if (e.target.checked) {
-                          if (x === "All") {
-                            setFieldState({
-                              ...fieldState,
-                              ["Status"]: {
-                                ...fieldState["Status"],
-                                value: [
-                                  "All",
-                                  "Open",
-                                  "Processing",
-                                  "Accepted",
-                                  "Rejected",
-                                ],
-                              },
-                            });
-                            return;
-                          }
-                          let tryFilter = statsValue?.filter(
-                            (s) => s !== "All"
-                          );
-                          if (
-                            tryFilter?.length > 0 &&
-                            tryFilter?.length ===
-                              [
-                                "All",
-                                "Open",
-                                "Processing",
-                                "Accepted",
-                                "Rejected",
-                              ].length -
-                                1
-                          ) {
-                            setFieldState({
-                              ...fieldState,
-                              ["Status"]: {
-                                ...fieldState["Status"],
-                                value: [
-                                  "All",
-                                  "Open",
-                                  "Processing",
-                                  "Accepted",
-                                  "Rejected",
-                                ],
-                              },
-                            });
-                            return;
-                          }
-                          setFieldState({
-                            ...fieldState,
-                            ["Status"]: {
-                              ...fieldState["Status"],
-                              value: [
-                                ...statsValue?.filter((s) => s !== "All"),
-                              ],
-                            },
-                          });
-                          return;
-                        }
+              {[...data["status"]].map((x) => {
+                return (
+                  <Checkbox
+                    label={x}
+                    value={
+                      fieldState["Status"].value.includes(x) ||
+                      fieldState["Status"].value.includes("All")
+                    }
+                    onChange={(e) => {
+                      let statsValue = [
+                        ...new Set([...fieldState["Status"].value, x]),
+                      ];
+                      if (e.target.checked) {
                         if (x === "All") {
                           setFieldState({
                             ...fieldState,
                             ["Status"]: {
                               ...fieldState["Status"],
-                              value: [],
+                              value: [...data["status"]],
+                            },
+                          });
+                          return;
+                        }
+                        let tryFilter = statsValue?.filter((s) => s !== "All");
+                        if (
+                          tryFilter?.length > 0 &&
+                          tryFilter?.length === [...data["status"]].length - 1
+                        ) {
+                          setFieldState({
+                            ...fieldState,
+                            ["Status"]: {
+                              ...fieldState["Status"],
+                              value: [...data["status"]],
                             },
                           });
                           return;
@@ -531,18 +498,34 @@ const App = () => {
                           ...fieldState,
                           ["Status"]: {
                             ...fieldState["Status"],
-                            value: [
-                              ...statsValue.filter(
-                                (s) => s !== x && s !== "All"
-                              ),
-                            ],
+                            value: [...statsValue?.filter((s) => s !== "All")],
                           },
                         });
-                      }}
-                    />
-                  );
-                }
-              )}
+                        return;
+                      }
+                      if (x === "All") {
+                        setFieldState({
+                          ...fieldState,
+                          ["Status"]: {
+                            ...fieldState["Status"],
+                            value: [],
+                          },
+                        });
+                        return;
+                      }
+                      setFieldState({
+                        ...fieldState,
+                        ["Status"]: {
+                          ...fieldState["Status"],
+                          value: [
+                            ...statsValue.filter((s) => s !== x && s !== "All"),
+                          ],
+                        },
+                      });
+                    }}
+                  />
+                );
+              })}
             </div>
             <div
               style={{
@@ -565,7 +548,7 @@ const App = () => {
                       ...fieldState,
                       ["Category"]: {
                         checked: e.target.checked,
-                        value: ["All", "Electronics", "Furniture", "Others"],
+                        value: [...data["category"]],
                       },
                     });
                     return;
@@ -580,7 +563,7 @@ const App = () => {
                   return;
                 }}
               />
-              {["All", "Electronics", "Furniture", "Others"]?.map((x) => {
+              {[...data["category"]]?.map((x) => {
                 return (
                   <Checkbox
                     label={x}
@@ -599,12 +582,7 @@ const App = () => {
                             ...fieldState,
                             ["Category"]: {
                               ...fieldState["Category"],
-                              value: [
-                                "All",
-                                "Electronics",
-                                "Furniture",
-                                "Others",
-                              ],
+                              value: [...data["category"]],
                             },
                           });
                           return;
@@ -612,21 +590,13 @@ const App = () => {
                         let tryFilter = statsValue?.filter((s) => s !== "All");
                         if (
                           tryFilter?.length > 0 &&
-                          tryFilter?.length ===
-                            ["All", "Electronics", "Furniture", "Others"]
-                              .length -
-                              1
+                          tryFilter?.length === [...data["category"]].length - 1
                         ) {
                           setFieldState({
                             ...fieldState,
                             ["Category"]: {
                               ...fieldState["Category"],
-                              value: [
-                                "All",
-                                "Electronics",
-                                "Furniture",
-                                "Others",
-                              ],
+                              value: [...data["category"]],
                             },
                           });
                           return;
@@ -690,12 +660,32 @@ const App = () => {
                 }}
               />
               <Dropdown
-                value={undefined}
+                value={fieldState["Country"].value[0]}
                 options={[
-                  { label: "test", value: "bro" },
-                  { label: "test2", value: "nono" },
-                  { label: "All", value: "yes" },
+                  ...data["country"]?.map((name) => {
+                    return { label: name, value: name };
+                  }),
                 ]}
+                needBlank={true}
+                onChange={(e) => {
+                  if (e.target.value === "") {
+                    setFieldState({
+                      ...fieldState,
+                      ["Country"]: {
+                        checked: false,
+                        value: [],
+                      },
+                    });
+                    return;
+                  }
+                  setFieldState({
+                    ...fieldState,
+                    ["Country"]: {
+                      checked: true,
+                      value: [e.target.value],
+                    },
+                  });
+                }}
               />
             </div>
             <div
