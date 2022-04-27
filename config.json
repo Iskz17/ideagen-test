@@ -1,0 +1,25 @@
+{
+  "customerName": [
+    "Kivell",
+    "Jardine",
+    "Gill",
+    "Sor'vino",
+    "Jones",
+    "Andrews",
+    "Jardine",
+    "Thompson",
+    "Jones",
+    "Morgan"
+  ],
+  "country": [
+    "United Kingdom",
+    "Rusia",
+    "German",
+    "Singapore",
+    "Malaysia",
+    "Taiwan",
+    "China"
+  ],
+  "status": ["All", "Open", "Processing", "Accepted", "Rejected"],
+  "category": ["All", "Electronics", "Furniture", "Others"]
+}
