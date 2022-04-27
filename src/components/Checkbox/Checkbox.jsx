@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 const Checkbox = (props) => {
-  const { Name, id, onChange, value, defaultValue } = props;
+  const { Name, id, onChange, value, defaultValue, label, ...rest } = props;
   return (
     <label>
       <input
@@ -12,7 +12,7 @@ const Checkbox = (props) => {
         checked={value}
         onChange={onChange}
       />
-      Hello
+      {label}
     </label>
   );
 };
