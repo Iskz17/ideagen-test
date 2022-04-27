@@ -6,6 +6,7 @@ const Dropdown = (props) => {
     <label>
       {label}
       <select value={value} onChange={onChange}>
+        {props?.needBlank ? <option value={""}>{""}</option> : null}
         {options?.map((option) => (
           <option value={option.value}>{option.label}</option>
         ))}
