@@ -11,17 +11,42 @@ table {
   border-radius: 10px;
   padding: 6px;
   width: 800px;
-  height: 400px;
+  /* height: 400px; */
   box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+  transition: 0.25s ease;
+  border-collapse: collapse;
+  /* display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  flex-basis: auto; */
 }
 
 th {
   border-bottom: 1px solid black;
+  cursor: pointer;
+  transition: 0.25s ease;
+  height: 35px;
+}
+th:active {
+  transform: scale(0.95);
 }
 
 td {
   text-align: center;
+  padding-bottom: 10px;
+  padding-top: 10px;
 }
-/* tr:nth-child(even) {
-  background-color: white;
-} */
+tr:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+input[type="text"]:focus {
+  border: 2px solid blue;
+}
+select {
+  transition: 0.15s ease;
+}
+select:focus {
+  border: 2px solid blue;
+}
