@@ -27,7 +27,7 @@ const App = () => {
     CreatedDate: { checked: false, value: { From: "", To: "" } },
     CustomerName: { checked: false, value: [] },
   });
-  const [sortData, setSortData] = useState({ key: "", increase: true });
+  const [sortData, setSortData] = useState({ key: "OrderNo", increase: true });
 
   const SalesOrderList = [
     {
@@ -300,7 +300,6 @@ const App = () => {
             minHeight: 0,
             margin: 0,
             padding: 0,
-            //backgroundColor: "blue",
           }}
         >
           <h1
@@ -323,13 +322,6 @@ const App = () => {
                 alignItems: "center",
               }}
             >
-              {/* <Button
-                label={`🧪`}
-                onClick={(e) => {
-                  //  console.log("this is button");
-                  setModalState(true);
-                }}
-              /> */}
               <div
                 onClick={(e) => {
                   setModalState(true);

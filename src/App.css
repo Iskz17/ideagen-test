@@ -50,3 +50,9 @@ select {
 select:focus {
   border: 2px solid blue;
 }
+button {
+  transition: 0.25s ease;
+}
+button:active {
+  transform: scale(0.95);
+}
